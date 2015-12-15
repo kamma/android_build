@@ -22,13 +22,13 @@
 
 PRODUCT_PACKAGES += \
     BasicDreams \
-    Browser \
-    Calendar \
-    CalendarProvider \
+#    Browser \
+#    Calendar \
+#    CalendarProvider \
     CaptivePortalLogin \
     CertInstaller \
     Contacts \
-    DeskClock \
+#    DeskClock \
     DocumentsUI \
     DownloadProviderUi \
     Email \
@@ -40,14 +40,14 @@ PRODUCT_PACKAGES += \
     KeyChain \
     Keyguard \
     LatinIME \
-    Launcher2 \
+#    Launcher2 \
     ManagedProvisioning \
     PicoTts \
     PacProcessor \
     libpac \
     PrintSpooler \
     ProxyHandler \
-    QuickSearchBox \
+#    QuickSearchBox \
     Settings \
     SharedStorageBackup \
     Telecom \
