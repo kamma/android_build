@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 #
 # Handle various build version information.
 #
@@ -26,7 +25,6 @@
 #     BUILD_NUMBER
 #     SECURITY_PATCH
 #
-
 # Look for an optional file containing overrides of the defaults,
 # but don't cry if we don't find it.  We could just use -include, but
 # the build.prop target also wants INTERNAL_BUILD_ID_MAKEFILE to be set
@@ -36,7 +34,6 @@ INTERNAL_BUILD_ID_MAKEFILE := $(wildcard $(BUILD_SYSTEM)/build_id.mk)
 ifneq "" "$(INTERNAL_BUILD_ID_MAKEFILE)"
   include $(INTERNAL_BUILD_ID_MAKEFILE)
 endif
-
 ifeq "" "$(PLATFORM_VERSION)"
   # This is the canonical definition of the platform version,
   # which is the version that we reveal to the end user.
@@ -44,7 +41,6 @@ ifeq "" "$(PLATFORM_VERSION)"
   # than overriding it somewhere else).  Can be an arbitrary string.
   PLATFORM_VERSION := 6.0.1
 endif
-
 ifeq "" "$(PLATFORM_SDK_VERSION)"
   # This is the canonical definition of the SDK version, which defines
   # the set of APIs and functionality available in the platform.  It
@@ -56,18 +52,15 @@ ifeq "" "$(PLATFORM_SDK_VERSION)"
   # the code-name of the new development work.
   PLATFORM_SDK_VERSION := 23
 endif
-
 ifeq "" "$(PLATFORM_VERSION_CODENAME)"
   # This is the current development code-name, if the build is not a final
   # release build.  If this is a final release build, it is simply "REL".
   PLATFORM_VERSION_CODENAME := REL
-
   # This is all of the development codenames that are active.  Should be either
   # the same as PLATFORM_VERSION_CODENAME or a comma-separated list of additional
   # codenames after PLATFORM_VERSION_CODENAME.
   PLATFORM_VERSION_ALL_CODENAMES := $(PLATFORM_VERSION_CODENAME)
 endif
-
 ifeq "REL" "$(PLATFORM_VERSION_CODENAME)"
   PLATFORM_PREVIEW_SDK_VERSION := 0
 else
@@ -84,7 +77,6 @@ else
     PLATFORM_PREVIEW_SDK_VERSION := 0
   endif
 endif
-
 ifeq "" "$(DEFAULT_APP_TARGET_SDK)"
   # This is the default minSdkVersion and targetSdkVersion to use for
   # all .apks created by the build system.  It can be overridden by explicitly
@@ -97,15 +89,13 @@ ifeq "" "$(DEFAULT_APP_TARGET_SDK)"
     DEFAULT_APP_TARGET_SDK := $(PLATFORM_VERSION_CODENAME)
   endif
 endif
-
 ifeq "" "$(PLATFORM_SECURITY_PATCH)"
   # Used to indicate the security patch that has been applied to the device.
   # Can be an arbitrary string, but must be a single word.
   #
   # If there is no $PLATFORM_SECURITY_PATCH set, keep it empty.
-  PLATFORM_SECURITY_PATCH := 2015-12-01
+  PLATFORM_SECURITY_PATCH := 2016-01-01
 endif
-
 ifeq "" "$(PLATFORM_BASE_OS)"
   # Used to indicate the base os applied to the device.
   # Can be an arbitrary string, but must be a single word.
@@ -113,7 +103,6 @@ ifeq "" "$(PLATFORM_BASE_OS)"
   # If there is no $PLATFORM_BASE_OS set, keep it empty.
   PLATFORM_BASE_OS :=
 endif
-
 ifeq "" "$(BUILD_ID)"
   # Used to signify special builds.  E.g., branches and/or releases,
   # like "M5-RC7".  Can be an arbitrary string, but must be a single
@@ -122,7 +111,6 @@ ifeq "" "$(BUILD_ID)"
   # If there is no BUILD_ID set, make it obvious.
   BUILD_ID := UNKNOWN
 endif
-
 ifeq "" "$(BUILD_NUMBER)"
   # BUILD_NUMBER should be set to the source control value that
   # represents the current state of the source code.  E.g., a
